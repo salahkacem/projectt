@@ -1,0 +1,218 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-secale=1.0">
+        <title>Sun Travel</title>
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/bootstrapp.min.css" type="text/css">
+
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand"   href="/"><img style="width: 150px;height: 80px;" src="image/sun.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stay in Tunisia</a>
+                <div class="dropdown-menu">
+                  <h3>Hotels</h3>
+                  <a class="dropdown-item" href="#">Tunis</a>
+                  <a class="dropdown-item" href="#">Hammamet</a>
+                  <a class="dropdown-item" href="#">Sousse</a>
+                  <a class="dropdown-item" href="#">Monastir</a>
+                  <a class="dropdown-item" href="#">Mahdia</a>
+                  <a class="dropdown-item" href="#">Tabarka</a>
+                  <a class="dropdown-item" href="#">Ain Drahem</a>
+                  <a class="dropdown-item" href="#">Djerba</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Travelling abroad</a>
+                <div class="dropdown-menu">
+                  <h6>Group Travel</h6>
+                  <a class="dropdown-item" href="#">Group Travel</a>
+                  <div class="dropdown-divider"></div>
+                  <h6>Tailor-made travel</h6>
+                  <a class="dropdown-item" href="#">All our à la carte trips </a>
+                  <a class="dropdown-item" href="#">Our luxury packages</a>
+                  <a class="dropdown-item" href="#">Our low cost stays </a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#reservations" >Flight</a>
+              </li>
+            </ul>
+
+            <% if (!user) { %>
+
+            <form class="d-flex">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a href='/signup' >Signup</a></button>
+              </form>
+              <form class="d-flex" style="padding-left:20px">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a href='/login' >Login</a></button>
+            </form>
+
+            <%  }else{ %>
+<div class="row">
+  <div class="col-2">
+    <div class="avatar avatar-img">
+      <img  style="width: 50px;height: 50px;" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user" class="avatar-img rounded-circle">
+    </div>
+  </div>
+  <div class="col-8" style="margin-left: 10px;padding-top: 10px;">
+<%= user.firstname %> <%=user.lastname  %>
+</div>
+</div>
+            <div class="d-flex">
+
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Profile
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/reservationHotel"><i class="fa fa-hotel"></i>Hotels</a></li>
+                <li><a class="dropdown-item" href="/reservationVol"><i class="fa fa-hotel"></i> Flights</a></li>
+                <li><a class="dropdown-item" href="/logout"><i class="fa fa-plane"></i> Logout</a></li>
+              </ul>
+            </div>
+            </div>
+            <%  } %>
+
+
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="image/dsBuffer.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="image/slidelademeure.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="image/SLIDEspa.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <section class="" id="hotels-best">
+                <h2 class ="text-center pt-3" style="padding-top:30px;padding-bottom:30px">Your Hotel Reservations</h2>
+
+      <div class="container pt-3">
+         <div class="row row-cols-1 row-cols-md-3 g-4 topHotels ">
+
+                         <% if (reservation.length > 0) { %>
+                           <% reservation.map((item,index)=>{ %>
+
+
+          <div class="col" >
+            <div class="card h-100 hotels-list-item">
+              <figure>
+                <img src="image/q.jpg" class="card-img-top img-fluid lazyloaded">
+              </figure>
+              <div class="promo badge-danger">-25% </div>
+              <div class="card-body">
+                <h3 class="col-12" ><%= item.hotel.name %></h3>
+                <h3 class="col-12" >
+                           <% for (let i = 0; i < item.hotel.rate; i++) { %>
+                            <img src="image/p.png">
+                             <%  } %>
+                  </h3>
+                </h3>
+                <p> <%= item.hotel.place %></p>
+                <p class=" card-text text-dark"> <%= item.hotel.description %> </p>
+              </div>
+              <div class="card-footer border-0 bg-transparent">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="fs-6"> From
+                  <span class="fs-4 font-weight-600">
+                    <%= item.hotel.price %>
+                    <sup>TND</sup></span>
+                  </div>
+                  <div class="align-self-center">
+                  <a class="btn btn-warning" href="/cancelReservationHotelAction/<%= item._id %>">Cancel</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+                            <%  }) %>
+                                  <% } else { %>
+                                          <div>No data found</div>
+                                      <% } %>
+
+
+
+        </div>
+        </div>
+      </section>
+
+      <footer>
+        <hr>
+        <div class="border-top-primary py-4">
+          <div class="container">
+            <div class="row g-2 g-lg-4">
+              <div class="col-md-4">
+               <img style="width: 150px;height: 80px;" src="image/sun.png"></div>
+            <div class="col-md-8">
+              <p class="mb-0">SunTravel , votre Agence en Tunisie en Ligne vous propose des Promotions sur vos Voyages et Séjours en Tunisie et dans le Monde avec les Meilleurs Prix et Services .</p>
+            </div>
+
+                <div class="col-md-4">
+                  <div class="news-box align-self-center me-4">
+                  <div class="font-weight-500 text-warning mb-3 fs-6"> Suivez-nous</div>
+                  <ul class="ml-auto list-inline mb-0">
+                    <li class="list-inline-item">
+                      <a href="#" rel="nofollow">
+                        <img src="image/facebook.png"></a></li>
+                    <li class="list-inline-item">
+                      <a href="#" rel="nofollow">
+                        <img src="image/twitter.png"></a></li>
+                    <li class="list-inline-item">
+                      <a href="#" rel="nofollow">
+                        <img src="image/instagram.png"></a></li>
+                    <li class="list-inline-item">
+                      <a href="#" rel="nofollow">
+                        <img src="image/linkedin.png"></a></li>
+                    <li class="list-inline-item">
+                      <a href="#" rel="nofollow">
+                        <img src="image/youtube.png"></a>
+                    </li>
+                  </ul>
+                  </div>
+                </div>
+                  <div class="col-md-3">
+                   <div class="font-weight-500 text-warning mb-3 fs-6"> Paiment sécurisé</div>
+                   <img src="image/visa.png">
+                 </div>
+               </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-secale=1.0">
+        <title>Agency Management</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/navbar.css" type="text/css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+<body>
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    Project Name
+  </div>
+  <ul class="sidebar-navigation">
+    <li>
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="/admin/users">
+        <i class="fa fa-users" aria-hidden="true"></i> Users
+      </a>
+    </li>
+        <li>
+          <a href="/admin/hotels">
+            <i class="fa fa-hotel" aria-hidden="true"></i> Hotels
+          </a>
+        </li>
+            <li>
+              <a href="/admin/vols">
+                <i class="fa fa-plane" aria-hidden="true"></i> Travel
+              </a>
+            </li>
+  </ul>
+</div>
+
+<div class="content-container">
+
+  <div class="container-fluid">
+
+
+<div class="card" >
+    <div class="card-header">
+        <h4 class="font-weight-bold">Update vol</h4>
+    </div>
+    <div class="card-body">
+        <form action ='/admin/updateVolAction/<%= vol._id %>' method="post">
+            <div class="card h-100 hotels-list-item">
+                           <div class="row">
+                               <div class="col-6">
+                                   <div class="form-group">
+                                       <label class="col-form-label" for="startPlace">Start Place</label>
+                                       <input type="text" class="form-control" value="<%= vol.startPlace %>" name="startPlace" placeholder="startPlace" id="Start Place">
+                                   </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                       <label class="col-form-label" for="distination">Distination</label>
+                                       <input type="text" class="form-control" value="<%= vol.distination %>" name="distination" placeholder="distination" id="Distination">
+                                   </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                       <label for="adresse">Date</label>
+                                       <input type="date" class="form-control" value="<%= vol.date %>" name="date" id="date" placeholder="date" />
+                                   </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                       <label for="adresse">Price</label>
+                                       <input type="number" class="form-control" value="<%= vol.price %>" name="price" id="price" placeholder="price" />
+                                   </div>
+                               </div>
+                            <div class="col-6">
+                                <div class="form-group row">
+                                    <label class="col-12" for="returnVol">Return</label>
+                                    <input class="col-6" type="checkbox" id="returnVol" name="returnVol" checked="<%= vol.returnVol %>" />
+                                </div>
+                            </div>
+
+                           </div>
+                   
+            <div class="">
+                <button type="submit"  class="btn btn-success"> Update</button>
+                <a href="/vol" class="btn btn-light">Cancel</a>        
+            </div>     
+        </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body></html>

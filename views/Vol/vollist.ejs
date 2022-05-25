@@ -1,0 +1,105 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-secale=1.0">
+        <title>Agency Management</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/navbar.css" type="text/css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body>
+      <nav class="navbar navbar-light bg-dark">
+        <span class="navbar-brand mb-0 h1"></span>
+
+                      <div class="d-flex" style="padding-right:20px">
+                      <button class="btn btn-secondary bg-white my-2 my-sm-0" type="submit"><a href='/logout' >Logout</a></button>
+                    </div>
+      </nav>
+    <div class="sidebar-container">
+
+
+  <ul class="sidebar-navigation">
+    <li>
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="/admin/users">
+        <i class="fa fa-users" aria-hidden="true"></i> Users
+      </a>
+    </li>
+        <li>
+          <a href="/admin/hotels">
+            <i class="fa fa-hotel" aria-hidden="true"></i> Hotels
+          </a>
+        </li>
+            <li>
+              <a href="/admin/vols">
+                <i class="fa fa-plane" aria-hidden="true"></i> Travel
+              </a>
+            </li>
+  </ul>
+    </div>
+
+    <div class="content-container">
+
+      <div class="container-fluid">
+
+  <div class="card">
+      <div class="card-header">
+          <div class="row">
+                                  <div class="col-11">
+                                      <h4 class="font-weight-bold">All Flight</h4>
+                                  </div>
+              <div class="col-1">
+                  <a href="/admin/addVol" class="btn btn-success float-right"><i class="fa fa-plus mr-1"></i> Add New</a>
+              </div>
+          </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Start Place</th>
+                    <th scope="col">Distination</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Return</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+
+                <% if (vols.length > 0) { %>
+                  <% vols.map((item,index)=>{ %>
+                    <tr>
+
+                      <th scope="row"><%= item.startPlace %></th>
+                      <td><%= item.distination %></td>
+                      <td><%= item.date %></td>
+                      <td><%= item.price %></td>
+                      <td><%= item.returnVol %></td>
+                      <td>
+                          <a href="/admin/updateVol/<%= item._id %>" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                          <a href='/admin/deleteVol/<%= item._id %>' class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                      </td>
+                  </tr>
+                  <%  }) %>
+                        <% } else { %>
+                            <tr>
+                                <td>No data found</td>
+                            </tr>
+                            <% } %>
+                
+                            
+                           
+                            
+            </tbody>
+            </table>
+  </div>
+  </div>
+  </div>
+  </div>

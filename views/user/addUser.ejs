@@ -1,0 +1,105 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-secale=1.0">
+        <title>Agency Management</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/navbar.css" type="text/css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+    </head>
+<body>
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    Project Name
+  </div>
+  <ul class="sidebar-navigation">
+    <li>
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="/admin/users">
+        <i class="fa fa-users" aria-hidden="true"></i> Users
+      </a>
+    </li>
+        <li>
+          <a href="/admin/hotels">
+            <i class="fa fa-hotel" aria-hidden="true"></i> Hotels
+          </a>
+        </li>
+            <li>
+              <a href="/admin/vols">
+                <i class="fa fa-plane" aria-hidden="true"></i> Travel
+              </a>
+            </li>
+  </ul>
+</div>
+
+<div class="content-container">
+
+  <div class="container-fluid">
+
+<div class="card" >
+    <div class="card-header">
+        <h4 class="font-weight-bold">Add New User</h4>
+    </div>
+    <div class="card-body">
+        <form action ="/addUserAction" id="add_customer_form" method="post">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="firstname">First Name</label>
+                        <input type="text" class="form-control" name="firstname" placeholder="enter first name" id="firstname">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="lastname">Last Name</label>
+                        <input type="text" class="form-control" name="lastname" placeholder="enter last name" id="lastname">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="adresse">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="phonenumber">Phone Number</label>
+                        <input type="number" class="form-control" name="phonenumber" placeholder="enter your phone number" id="phonenumber">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                </div>
+                <div class="col-6" >
+                     <div class="form-group">
+                        <label class="col-form-label" for="role">Role</label>
+
+                        <select class="form-select" name="role" aria-label="Default select example">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+            <div class="">
+                <button type="submit"  class="btn btn-success"> Submit</button>
+                <a href="/" class="btn btn-light">Cancel</a>        
+            </div>     
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+</body></html>
+
+
